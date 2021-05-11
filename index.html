@@ -33,7 +33,7 @@
     <!-- Background box -->
     <div class="w-full px-4 bg-background-900 flex flex-col items-center">
       <!-- Links -->
-      <nav class="p-10 hidden md:flex space-x-24 text-lg font-medium">
+      <nav class="p-10 flex space-x-12 text-lg font-medium">
         <a href="#features">Features</a>
         <a href="#learn">Learn</a>
         <a href="#cases">Cases</a>
@@ -46,15 +46,15 @@
         </a>
       </nav>
       <!-- Intro -->
-      <header class="mt-16 md:mt-4 mb-4 flex flex-col space-y-10 items-center">
+      <header class="mt-16 mb-8 flex flex-col space-y-10 items-center">
         <img
           src="/images/broadway.svg"
           alt="Broadway"
           height="160"
           width="560"
         />
-        <p class="max-w-[610px] text-lg text-center">
-          Broadway helps you build concurrent and multi-stage data ingestion and
+        <p class="max-w-[610px] text-xl text-center">
+          Build concurrent and multi-stage data ingestion and
           data processing pipelines with Elixir.
         </p>
         <a
@@ -124,26 +124,7 @@
               Concurrency and Batching
             </h3>
             <p>
-              Broadway is an open source library for data pipelines and data
-              ingestion with built-in support for concurrency and batching.
-            </p>
-          </div>
-          <!-- Feature card -->
-          <div class="flex flex-col">
-            <img
-              src="/images/cloud.svg"
-              alt=""
-              height="60"
-              width="60"
-              class="mb-4"
-            />
-            <h3 class="mb-2 text-gray-50 text-lg font-semibold">
-              Integrations
-            </h3>
-            <p>
-              Broadway includes integration for RabbitMQ, Amazon SQS, Google
-              PubSub, and Apache Kafka. You can also build your own or use any
-              of the community packages.
+              Broadway is an open source library with concurrent data ingestion and data processing. Outgoing data is also concurrent and can be batched.
             </p>
           </div>
           <!-- Feature card -->
@@ -164,6 +145,24 @@
           <!-- Feature card -->
           <div class="flex flex-col">
             <img
+              src="/images/cloud.svg"
+              alt=""
+              height="60"
+              width="60"
+              class="mb-4"
+            />
+            <h3 class="mb-2 text-gray-50 text-lg font-semibold">
+              Integrations
+            </h3>
+            <p>
+              Broadway includes integration for RabbitMQ, Amazon SQS, Google
+              PubSub, and Apache Kafka. You can also <a class="underline" href="https://hexdocs.pm/broadway/custom-producers.html">hook your own</a> or use any
+              of the community packages.
+            </p>
+          </div>
+          <!-- Feature card -->
+          <div class="flex flex-col">
+            <img
               src="/images/back_pressure.svg"
               alt=""
               height="60"
@@ -171,12 +170,11 @@
               class="mb-4"
             />
             <h3 class="mb-2 text-gray-50 text-lg font-semibold">
-              Back-Pressure
+              Back pressure
             </h3>
             <p>
-              Broadway is built with GenStage to provide back-pressure, making
-              sure you only ingest data the system can handle and avoid
-              overloads.
+              Broadway builds on GenStage to provide back pressure and avoid overloads,
+              ensuring you only ingest data the system can handle. See how <a class="underline" href="https://blog.discord.com/how-discord-handles-push-request-bursts-of-over-a-million-per-minute-with-elixirs-genstage-8f899f0221b4">Discord</a> and <a class="underline" href="https://elixir-lang.org/blog/2020/10/27/delivering-social-change-with-elixir-at-change.org/">Change.org</a> use GenStage at scale.
             </p>
           </div>
           <!-- Feature card -->
@@ -189,10 +187,10 @@
               class="mb-4"
             />
             <h3 class="mb-2 text-gray-50 text-lg font-semibold">
-              Rate - Limiting
+              Rate limiting
             </h3>
             <p>
-              A built-in rate-limiter allows to control how to ingest data. This
+              A built-in rate limiter controls how to ingest data. This
               is useful when external factors dictate how fast your pipeline
               should run.
             </p>
@@ -208,8 +206,8 @@
             />
             <h3 class="mb-2 text-gray-50 text-lg font-semibold">Dashboard</h3>
             <p>
-              Use Broadway LiveDashboard to inspect your pipelines, change
-              configuration parameters, and find bottlenecks.
+              The Broadway Dashboard allows you to inspect your pipelines,
+              see system parameters, and find bottlenecks.
             </p>
           </div>
         </div>
@@ -262,11 +260,11 @@
               <img src="/images/hex.png" alt="hex" height="90" width="90" />
             </div>
             <h3 class="mb-2 text-gray-50 text-xl font-semibold">
-              Check Out Docs
+              Get started
             </h3>
             <p class="gray-400">
-              Broadway is an open source library for data pipelines and data
-              ingestion with built-in support for concurrency and batching.
+              Read our getting started guides or dive into Broadway's
+              extensive API reference and architecture.
             </p>
             <div class="flex-grow"></div>
             <a
@@ -280,7 +278,7 @@
                 font-medium
               "
             >
-              <span>See Docs</span>
+              <span>See docs</span>
               <i class="ri-external-link-fill text-lg leading-none"></i>
             </a>
           </div>
@@ -297,10 +295,9 @@
             <div class="min-h-[100px] mb-4 flex items-end">
               <i class="ri-github-fill text-8xl leading-none"></i>
             </div>
-            <h3 class="mb-2 text-gray-50 text-xl font-semibold">Examples</h3>
+            <h3 class="mb-2 text-gray-50 text-xl font-semibold">Run the example</h3>
             <p class="gray-400">
-              See our Use Cases and Examples for Broadway to get an idea of what
-              its all about.
+              Clone and run our example repository. It features a bike sharing pipeline that reads from RabbitMQ and writes to PostgreSQL.
             </p>
             <div class="flex-grow"></div>
             <a
@@ -314,7 +311,7 @@
                 font-medium
               "
             >
-              <span>See Examples</span>
+              <span>See example repo</span>
               <i class="ri-external-link-fill text-lg leading-none"></i>
             </a>
           </div>
@@ -340,8 +337,8 @@
               />
             </h3>
             <p class="gray-400">
-              Our latest and updated book that helps you learn about Concurrent
-              Data Processing in Elixir.
+              Learn different ways of writing concurrent code in Elixir, covering
+              tools like GenStage and Broadway.
             </p>
             <div class="flex-grow"></div>
             <a
@@ -355,7 +352,7 @@
                 font-medium
               "
             >
-              <span>Buy Now</span>
+              <span>Buy now</span>
               <i class="ri-external-link-fill text-lg leading-none"></i>
             </a>
           </div>
