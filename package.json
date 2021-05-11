@@ -12,8 +12,5 @@
     "postcss": "^8.2.14",
     "tailwindcss": "^2.1.2",
     "vite": "^2.2.3"
-  },
-  "dependencies": {
-    "remixicon": "^2.5.0"
   }
 }
