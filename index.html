@@ -4,10 +4,508 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Build concurrent and multi-stage data ingestion and data processing pipelines with Elixir."
+    />
     <title>Broadway</title>
+    <!-- Load assets -->
+    <link href="/style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Load icons in deferred way, as they are not critical -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+        rel="stylesheet"
+      />
+    </noscript>
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+  <body class="bg-background-900 text-gray-300 flex flex-col items-center">
+    <!-- Background box -->
+    <div class="w-full px-4 bg-background-900 flex flex-col items-center">
+      <!-- Links -->
+      <nav class="p-10 hidden md:flex space-x-24 text-lg font-medium">
+        <a href="#">Top</a>
+        <a href="#features">Features</a>
+        <a href="#learn">Learn</a>
+        <a
+          href="https://github.com/dashbitco/broadway"
+          class="flex space-x-2 items-center"
+        >
+          <span>Source</span>
+          <i class="ri-external-link-line text-base"></i>
+        </a>
+      </nav>
+      <!-- Intro -->
+      <header class="mt-16 md:mt-4 mb-4 flex flex-col space-y-10 items-center">
+        <img
+          src="/images/broadway.svg"
+          alt="Broadway"
+          height="160"
+          width="560"
+        />
+        <p class="max-w-[610px] text-lg text-center">
+          Broadway helps you build concurrent and multi-stage data ingestion and
+          data processing pipelines with Elixir.
+        </p>
+        <a
+          href="https://github.com/dashbitco/broadway"
+          class="
+            py-4
+            px-8
+            flex
+            space-x-2
+            items-center
+            rounded-lg
+            bg-broadway-700
+            leading-none
+            text-gray-800
+            font-medium
+          "
+        >
+          <i class="ri-github-fill text-lg leading-none"></i>
+          <span>Check Our Repo</span>
+        </a>
+      </header>
+      <!-- Features -->
+      <section
+        id="features"
+        class="
+          mb-10
+          pt-20
+          lg:mb-32
+          max-w-[960px]
+          flex flex-col
+          space-y-12
+          items-center
+        "
+      >
+        <h2
+          class="
+            flex
+            space-x-2
+            items-center
+            text-4xl text-gray-50
+            font-semibold
+          "
+        >
+          <span>Features you will</span>
+          <i class="ri-heart-fill"></i>
+        </h2>
+        <!-- Features grid -->
+        <div
+          class="
+            px-4
+            grid grid-cols-1
+            gap-y-12
+            md:grid-cols-2
+            md:gap-y-20 md:gap-x-36
+          "
+        >
+          <!-- Feature card -->
+          <div class="flex flex-col">
+            <img
+              src="/images/data_pipelines.svg"
+              alt=""
+              height="60"
+              width="60"
+              class="mb-4"
+            />
+            <h3 class="mb-2 text-gray-50 text-lg font-semibold">
+              Concurrency and Batching
+            </h3>
+            <p>
+              Broadway is an open source library for data pipelines and data
+              ingestion with built-in support for concurrency and batching.
+            </p>
+          </div>
+          <!-- Feature card -->
+          <div class="flex flex-col">
+            <img
+              src="/images/cloud.svg"
+              alt=""
+              height="60"
+              width="60"
+              class="mb-4"
+            />
+            <h3 class="mb-2 text-gray-50 text-lg font-semibold">
+              Integrations
+            </h3>
+            <p>
+              Broadway includes integration for RabbitMQ, Amazon SQS, Google
+              PubSub, and Apache Kafka. You can also build your own or use any
+              of the community packages.
+            </p>
+          </div>
+          <!-- Feature card -->
+          <div class="flex flex-col">
+            <img
+              src="/images/supervision_tree.svg"
+              alt=""
+              height="60"
+              width="60"
+              class="mb-4"
+            />
+            <h3 class="mb-2 text-gray-50 text-lg font-semibold">Robust</h3>
+            <p>
+              Broadway relies on the Erlang VM and supervision trees to provide
+              a robust failure model and graceful shutdowns.
+            </p>
+          </div>
+          <!-- Feature card -->
+          <div class="flex flex-col">
+            <img
+              src="/images/back_pressure.svg"
+              alt=""
+              height="60"
+              width="60"
+              class="mb-4"
+            />
+            <h3 class="mb-2 text-gray-50 text-lg font-semibold">
+              Back-Pressure
+            </h3>
+            <p>
+              Broadway is built with GenStage to provide back-pressure, making
+              sure you only ingest data the system can handle and avoid
+              overloads.
+            </p>
+          </div>
+          <!-- Feature card -->
+          <div class="flex flex-col">
+            <img
+              src="/images/rate_limiting.svg"
+              alt=""
+              height="60"
+              width="60"
+              class="mb-4"
+            />
+            <h3 class="mb-2 text-gray-50 text-lg font-semibold">
+              Rate - Limiting
+            </h3>
+            <p>
+              A built-in rate-limiter allows to control how to ingest data. This
+              is useful when external factors dictate how fast your pipeline
+              should run.
+            </p>
+          </div>
+          <!-- Feature card -->
+          <div class="flex flex-col">
+            <img
+              src="/images/metrics.svg"
+              alt=""
+              height="60"
+              width="60"
+              class="mb-4"
+            />
+            <h3 class="mb-2 text-gray-50 text-lg font-semibold">Dashboard</h3>
+            <p>
+              Use Broadway LiveDashboard to inspect your pipelines, change
+              configuration parameters, and find bottlenecks.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Background box -->
+    <div class="w-full px-4 bg-background-800 flex flex-col items-center">
+      <!-- Resources -->
+      <section
+        id="learn"
+        class="
+          py-10
+          lg:py-32
+          max-w-[1440px]
+          flex flex-col
+          space-y-12
+          items-center
+        "
+      >
+        <h2 class="relative">
+          <span class="text-8xl text-background-700 font-black">LEARN</span>
+          <span
+            class="
+              absolute
+              left-1/2
+              top-1/2
+              transform
+              -translate-x-1/2 -translate-y-1/2
+              whitespace-nowrap
+              text-3xl text-gray-50
+              font-semibold
+            "
+          >
+            Our Resources
+          </span>
+        </h2>
+        <!-- Resources grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Resource card -->
+          <div
+            class="
+              p-10
+              flex flex-col
+              bg-background-900
+              rounded-2xl
+              border-2 border-background-600
+            "
+          >
+            <div class="h-[90px] mb-4 flex items-end">
+              <img src="/images/hex.png" alt="hex" height="90" width="90" />
+            </div>
+            <h3 class="mb-2 text-gray-50 text-xl font-semibold">
+              Check Out Docs
+            </h3>
+            <p class="gray-400">
+              Broadway is an open source library for data pipelines and data
+              ingestion with built-in support for concurrency and batching.
+            </p>
+            <div class="flex-grow"></div>
+            <a
+              href="https://hexdocs.pm/broadway"
+              class="
+                mt-5
+                flex
+                space-x-2
+                items-center
+                text-lg text-broadway-700
+                font-medium
+              "
+            >
+              <span>See Docs</span>
+              <i class="ri-external-link-fill text-lg leading-none"></i>
+            </a>
+          </div>
+          <!-- Resource card -->
+          <div
+            class="
+              p-10
+              flex flex-col
+              bg-background-900
+              rounded-2xl
+              border-2 border-background-600
+            "
+          >
+            <div class="min-h-[90px] mb-4 flex items-end">
+              <div class="grid gap-10 grid-cols-2 md:grid-cols-4">
+                <img
+                  src="/images/rabbitmq.png"
+                  alt="RabbitMQ"
+                  height="48"
+                  width="48"
+                />
+                <img src="/images/sqs.png" alt="SQS" height="48" width="48" />
+                <img
+                  src="/images/kafka.png"
+                  alt="Kafka"
+                  height="48"
+                  width="48"
+                />
+                <img
+                  src="/images/google_pubsub.png"
+                  alt="Google PubSub"
+                  height="48"
+                  width="48"
+                />
+              </div>
+            </div>
+            <h3 class="mb-2 text-gray-50 text-xl font-semibold">Examples</h3>
+            <p class="gray-400">
+              See our Use Cases and Examples for Broadway to get an idea of what
+              its all about.
+            </p>
+            <div class="flex-grow"></div>
+            <a
+              href="https://hexdocs.pm/broadway/amazon-sqs.html"
+              class="
+                mt-5
+                flex
+                space-x-2
+                items-center
+                text-lg text-broadway-700
+                font-medium
+              "
+            >
+              <span>See Examples</span>
+              <i class="ri-external-link-fill text-lg leading-none"></i>
+            </a>
+          </div>
+          <!-- Resource card -->
+          <div
+            class="
+              p-10
+              flex flex-col
+              bg-background-900
+              rounded-2xl
+              border-2 border-background-600
+            "
+          >
+            <div class="h-[90px] mb-4"></div>
+            <h3 class="mb-2 text-gray-50 text-xl font-semibold relative">
+              Get the Book
+              <img
+                src="/images/book.png"
+                alt="Concurrent Data Processing in Elixir book"
+                height="190"
+                width="160"
+                class="absolute -right-6 bottom-8 md:right-0 md:bottom-0"
+              />
+            </h3>
+            <p class="gray-400">
+              Our latest and updated book that helps you learn about Concurrent
+              Data Processing in Elixir.
+            </p>
+            <div class="flex-grow"></div>
+            <a
+              href="https://pragprog.com/titles/sgdpelixir/concurrent-data-processing-in-elixir"
+              class="
+                mt-5
+                flex
+                space-x-2
+                items-center
+                text-lg text-broadway-700
+                font-medium
+              "
+            >
+              <span>Buy Now</span>
+              <i class="ri-external-link-fill text-lg leading-none"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Background box -->
+    <div class="px-4 py-10 lg:py-24 lg:pr-0 w-full bg-background-900">
+      <!-- Case studies -->
+      <div class="flex flex-col lg:flex-row align-between items-center w-full">
+        <!-- Left (heading and description) -->
+        <div class="lg:w-7/12 flex justify-end">
+          <section
+            class="
+              max-w-[840px]
+              lg:pr-16
+              flex flex-col
+              items-center
+              lg:items-start
+            "
+          >
+            <h2
+              class="
+                text-3xl
+                lg:text-5xl
+                text-gray-50
+                font-light
+                leading-tight
+                lg:leading-tight
+                text-center
+                lg:text-left
+              "
+            >
+              Learn about companies using Broadway in production directly on the
+              Elixir Website
+            </h2>
+            <ul
+              class="
+                mt-10
+                flex flex-col
+                space-y-2
+                text-xl
+                lg:text-2xl
+                font-thin
+              "
+            >
+              <li class="flex space-x-1 items-center">
+                <i class="ri-arrow-right-line leading-none"></i>
+                <a
+                  href="https://elixir-lang.org/blog/2020/10/27/delivering-social-change-with-elixir-at-change.org"
+                >
+                  Delivering Social Change with Elixir at Change.org
+                </a>
+              </li>
+              <li class="flex space-x-1 items-center">
+                <i class="ri-arrow-right-line leading-none"></i>
+                <a
+                  href="https://elixir-lang.org/blog/2021/01/13/orchestrating-computer-vision-with-elixir-at-v7"
+                >
+                  Orchestrating computer vision with Elixir at V7
+                </a>
+              </li>
+              <li class="flex space-x-1 items-center">
+                <i class="ri-arrow-right-line leading-none"></i>
+                <a
+                  href="https://elixir-lang.org/blog/2021/02/03/social-messaging-with-elixir-at-community"
+                >
+                  Social messaging with Elixir at the Community
+                </a>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <!-- Right (website screenshot) -->
+        <div class="mt-10 lg:mt-0 lg:w-5/12 flex justify-end">
+          <!--
+          Note: on large screens we show clipped webpage glued to the right,
+          while on small screens we show the whole browser window in a separate line.
+          -->
+          <img
+            src="/images/elixir_website_clipped.png"
+            alt="elixir website"
+            height="580"
+            width="632"
+            class="rounded-l-xl hidden lg:block"
+          />
+          <img
+            src="/images/elixir_website.png"
+            alt="elixir website"
+            height="580"
+            width="632"
+            class="rounded-lg block lg:hidden"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer
+      class="
+        pt-8
+        pb-12
+        w-full
+        flex flex-col
+        items-center
+        space-y-3
+        border-t-2 border-gray-800
+      "
+    >
+      <div class="flex space-x-4">
+        <img src="/images/dashbit.svg" alt="Dashbit" height="30" width="30" />
+        <img src="/images/elixir.svg" alt="Elixir" height="30" width="30" />
+      </div>
+      <div class="flex flex-col items-center text-lg">
+        <span>
+          Made by
+          <a
+            href="https://dashbit.co"
+            class="border-b-2 border-gray-200 text-gray-200 font-semibold"
+            >Dashbit</a
+          >
+        </span>
+        <span>
+          for the
+          <a
+            href="https://elixir-lang.org"
+            class="border-b-2 border-gray-200 text-gray-200 font-semibold"
+            >Elixir Programming Language</a
+          >
+        </span>
+      </div>
+    </footer>
   </body>
 </html>
